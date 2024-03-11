@@ -11,7 +11,7 @@ export default class UsersService {
   public async login(login: Login): Promise<ServiceResponse<Token>> {
     const user = await this.usersModel.getUserByEmail(login.email);
     if (!user || !bcrypt.compareSync(login.password, user.password)) {
-      return { status: 'UNAUTHORIZED', data: { message: 'Email or password invalid' } };
+      return { status: 'UNAUTHORIZED', data: { message: 'Invalid email or password' } };
     }
     const { email } = user;
     const token = jwt.sign({ email });
