@@ -14,4 +14,15 @@ export default class MatchesModel implements IMatchesModel {
     });
     return dbData;
   }
+
+  async filterMatchesInProgress(inProgress: boolean): Promise<IMatches[]> {
+    const dbData = await this.model.findAll({
+      where: { inProgress },
+      include: [
+        { model: SequelizeTeams, as: 'homeTeam', attributes: ['teamName'] },
+        { model: SequelizeTeams, as: 'awayTeam', attributes: ['teamName'] },
+      ],
+    });
+    return dbData;
+  }
 }
