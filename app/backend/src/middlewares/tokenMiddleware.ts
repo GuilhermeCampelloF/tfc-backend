@@ -8,12 +8,10 @@ export default class tokenMiddleware {
       return res.status(401).json({ message: 'Token not found' });
     }
     const token = authorization.split(' ')[1];
-    try {
-      const payload = jwt.verify(token);
-      res.locals.user = payload;
-      next();
-    } catch (err) {
-      return res.status(401).json({ message: 'Token must be a valid token' });
-    }
+    if (!token) return res.status(401).json({ message: 'Token must be a valid token' });
+    const payload = jwt.verify(token);
+    if (!payload) return res.status(401).json({ message: 'Token must be a valid token' });
+    res.locals.user = payload;
+    next();
   }
 }
