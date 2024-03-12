@@ -19,4 +19,12 @@ export default class MatchesService {
     const matches = await this.matchesModel.getAllMatches();
     return { status: 'SUCCESSFUL', data: matches };
   }
+
+  public async finishMatch(id: number) {
+    const match = await this.matchesModel.finishMatch(id);
+    if (match === null) {
+      return { status: 'NOT_FOUND', data: { message: 'Match not found' } };
+    }
+    return { status: 'SUCCESSFUL', data: { message: 'Finished' } };
+  }
 }
