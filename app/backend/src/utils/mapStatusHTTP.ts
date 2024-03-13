@@ -5,6 +5,7 @@ export default function mapStatusHTTP(status: string): number {
     case 'NOT_FOUND': return 404;
     case 'BAD_REQUEST': return 400;
     case 'SUCCESSFUL': return 200;
+    case 'CREATED': return 201;
     default: return 500;
   }
 }

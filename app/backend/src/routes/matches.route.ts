@@ -10,5 +10,7 @@ router.patch('/:id/finish', tokenMiddleware.validation, (req: Request, res: Resp
   matchesController.finishMatch(req, res));
 router.patch('/:id', tokenMiddleware.validation, (req: Request, res: Response) =>
   matchesController.updateMatch(req, res));
+router.post('/', tokenMiddleware.validation, (req: Request, res: Response) =>
+  matchesController.createMatch(req, res));
 
 export default router;
