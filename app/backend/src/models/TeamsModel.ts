@@ -1,4 +1,5 @@
 import SequelizeTeams from '../database/models/SequelizeTeams';
+import SequelizeMatches from '../database/models/SequelizeMatches';
 import ITeams from '../Interfaces/Teams/ITeams';
 import ITeamsModel from '../Interfaces/Teams/ITeamsModel';
 
@@ -15,5 +16,15 @@ export default class TeamsModel implements ITeamsModel {
     if (dbData === null) return null;
     const { teamName }: ITeams = dbData;
     return { id, teamName };
+  }
+
+  async getTeamsFinishedMatches(): Promise<ITeams[]> {
+    const dbData = await this.model.findAll({
+      include: [
+        { model: SequelizeMatches, as: 'homeMatches', where: { inProgress: false } },
+        { model: SequelizeMatches, as: 'awayMatches', where: { inProgress: false } },
+      ],
+    });
+    return dbData;
   }
 }

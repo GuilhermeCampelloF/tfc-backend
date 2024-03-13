@@ -1,3 +1,4 @@
+import IMatches from '../Matches/IMatches';
 import ILeaderboard from './ILeaderboard';
 
 export default class ILeaderboardModel {
@@ -38,5 +39,33 @@ export default class ILeaderboardModel {
       goalsBalance: this.getGoalsBalance(),
       efficiency: this.getEfficiency(),
     };
+  }
+
+  homeMatchStatus(match: IMatches[]) {
+    match.forEach((m) => {
+      this.goalsFavor += m.homeTeamGoals;
+      this.goalsOwn += m.awayTeamGoals;
+      if (m.homeTeamGoals > m.awayTeamGoals) {
+        this.victories += 1;
+      }
+      if (m.homeTeamGoals === m.awayTeamGoals) {
+        this.draws += 1;
+      }
+      this.losses += 1;
+    });
+  }
+
+  awayMatchStatus(match: IMatches[]) {
+    match.forEach((m) => {
+      this.goalsFavor += m.awayTeamGoals;
+      this.goalsOwn += m.homeTeamGoals;
+      if (m.awayTeamGoals > m.homeTeamGoals) {
+        this.victories += 1;
+      }
+      if (m.awayTeamGoals === m.homeTeamGoals) {
+        this.draws += 1;
+      }
+      this.losses += 1;
+    });
   }
 }
