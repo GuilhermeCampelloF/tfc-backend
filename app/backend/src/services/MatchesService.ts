@@ -27,4 +27,12 @@ export default class MatchesService {
     }
     return { status: 'SUCCESSFUL', data: { message: 'Finished' } };
   }
+
+  public async updateMatch(id: number, homeTeamGoals: number, awayTeamGoals: number) {
+    const match = await this.matchesModel.updateMatch(id, homeTeamGoals, awayTeamGoals);
+    if (match === null) {
+      return { status: 'NOT_FOUND', data: { message: 'Match not found' } };
+    }
+    return { status: 'SUCCESSFUL', data: { message: 'Updated' } };
+  }
 }
