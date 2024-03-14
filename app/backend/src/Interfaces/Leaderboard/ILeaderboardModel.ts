@@ -47,11 +47,11 @@ export default class ILeaderboardModel {
       this.goalsOwn += m.awayTeamGoals;
       if (m.homeTeamGoals > m.awayTeamGoals) {
         this.victories += 1;
-      }
-      if (m.homeTeamGoals === m.awayTeamGoals) {
+      } else if (m.homeTeamGoals === m.awayTeamGoals) {
         this.draws += 1;
+      } else {
+        this.losses += 1;
       }
-      this.losses += 1;
     });
   }
 
@@ -61,11 +61,11 @@ export default class ILeaderboardModel {
       this.goalsOwn += m.homeTeamGoals;
       if (m.awayTeamGoals > m.homeTeamGoals) {
         this.victories += 1;
-      }
-      if (m.awayTeamGoals === m.homeTeamGoals) {
+      } else if (m.awayTeamGoals === m.homeTeamGoals) {
         this.draws += 1;
+      } else {
+        this.losses += 1;
       }
-      this.losses += 1;
     });
   }
 }
