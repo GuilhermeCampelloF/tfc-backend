@@ -1,5 +1,3 @@
-# :construction: README em construção ! :construction:
-
 ## TRYBE FUTEBOL CLUBE
 
 O projeto Trybe Futebol Clube (TFC) foi desenvolvido durante o curso de formação full-stack pela Trybe.
