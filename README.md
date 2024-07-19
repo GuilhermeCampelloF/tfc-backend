@@ -49,6 +49,8 @@ npm run install:apps
 
 Realizadas essas etapas, será possível executar/encerrar o projeto completo utilizando os scripts de apoio `npm run compose:up` e `npm run compose:down`, respectivamente.
 
+O front-end da aplicação pode ser acessado pela url `http://localhost:3000`.
+
 ## 📖 HABILIDADES TRABALHADAS 📖
 
 - Desenvolvimento de API utilizando o método TDD;
