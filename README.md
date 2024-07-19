@@ -63,5 +63,5 @@ Realizadas essas etapas, será possível executar/encerrar o projeto completo ut
 ## ©️ DISCLAIMER
 
 <div align="justify">
-Com exceção das alterações destacadas acima no tópico "implementações realizadas", <b>TODOS OS DEMAIS ARQUIVOS</b> foram desenvolvidos e estão sob responsabilidade da TRYBE, incluindo, mas não se limitando ao: front-end pré-implementado, diagrama entidade-relacionamento do sistema e organização dos demais diretórios da aplicação.
+Com exceção das alterações destacadas acima no tópico "implementações realizadas", <b>TODOS OS DEMAIS ARQUIVOS</b> foram desenvolvidos e estão sob responsabilidade da TRYBE, incluindo, mas não se limitando ao: front-end pré-implementado, diagrama entidade-relacionamento do sistema, seeders e organização dos demais diretórios da aplicação.
 </div>
